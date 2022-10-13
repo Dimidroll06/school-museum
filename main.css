@@ -1,0 +1,28 @@
+body {
+    margin: 25pt 25pt;
+}
+
+div { box-sizing: border-box; }
+
+button { margin: 22px 0; font-size: 12pt; }
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+.ff1{ font-family: 'Times New Roman', Times, serif; }
+.ff2{ font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+.fs1{ font-size: 22pt; font-weight: 900; }
+.fs2{ font-size: 18pt; font-weight: 600; } 
+.fs3{ font-size: 16pt; font-weight: 300; }
+.fs4{ font-size: 14pt; font-weight: 100; }
+
+
+@media screen and (max-width: 800px) {
+    .fs1{ font-size: 22pt; font-weight: 900; }
+    .fs2{ font-size: 18pt; font-weight: 600; } 
+    .fs3{ font-size: 18pt; font-weight: 300; }
+    .fs4{ font-size: 16pt; font-weight: 100; }
+
+    .relativeFlex{ flex-wrap: wrap; }
+    .relativeFlex>*{ width: 100% !important; }
+}

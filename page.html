@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE NAME</title>
+
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <button onclick="history.go(-1)">назад</button>
+    <div id="main_page">
+
+
+        <!-- Заголовок -->
+        <header title="Александр Иванович Разгонин" subtitle="1919—2012 гг."></header>
+
+
+        <!-- В Одну строку -->
+        <blocks gap="18px">
+
+            <!-- Вертикально, но в блоке для одной строки -->
+            <blocks direction="colunm">
+                <!-- Изображение -->
+                <photo name="фото Разгонин1.jpg" size="300px"></photo>
+                <photo name="Звезда-Героя-СССР.png" size="82px"></photo>
+            </blocks>
+            <!-- Текст -->
+            <Text><b>Александр Иванович Разгонин</b> — советский военный лётчик морской авиации. Участник Великой Отечественной войны. Герой Советского Союза (1944). Гвардии подполковник.</Text>
+            
+        </blocks>
+
+        <!-- В одну строку без переноса любом разрешении -->
+        <blocks nowrap>
+            <!-- картинки с описанием -->
+            <photo name="фото Разгонин1.jpg" deskription="фотография №1"></photo>
+            <photo name="фото Разгонин1.jpg" deskription="фотография №2"></photo>
+            <photo name="фото Разгонин1.jpg" deskription="фотография №3"></photo>
+            
+        </blocks>
+
+
+
+    </div>
+    <script src="./framework.js"></script>
+</body>
+</html>
