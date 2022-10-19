@@ -59,7 +59,7 @@ defineTag('text', (attributes, elem)=>{
     return element;
 });
 
-defineTag('blocks', ({nowrap, gap, direcion}, elem)=>{
+defineTag('blocks', ({nowrap, gap, dock, direcion}, elem)=>{
     var element = document.createElement('div');
     element.id = "blocks";
 
@@ -67,11 +67,11 @@ defineTag('blocks', ({nowrap, gap, direcion}, elem)=>{
     element.style.width = "100%";
     element.style.marginTop = "15px";
     element.style.flexDirection = direcion ?? "row";
-    element.style.justifyContent = "space-around";
+    element.style.justifyContent = dock ?? "space-around";
     element.style.alignContent = "stretch";
     element.style.alignItems = "stretch";
     element.style.gap = gap ?? "5%";
-
+    
     if(typeof nowrap === "undefined") element.classList.add('relativeFlex');
 
     element.innerHTML = elem.innerHTML;
