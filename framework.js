@@ -71,7 +71,7 @@ defineTag('blocks', ({nowrap, gap, dock, direcion}, elem)=>{
     element.style.alignContent = "stretch";
     element.style.alignItems = "stretch";
     element.style.gap = gap ?? "5%";
-    console.log(dock)
+    
     if(typeof nowrap === "undefined") element.classList.add('relativeFlex');
 
     element.innerHTML = elem.innerHTML;
