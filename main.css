@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Caveat&family=Playfair+Display&family=El+Messiri&display=swap');
+
 body {
     background-image: url("https:/i.imgur.com/htVF4pz.jpg");
     margin: 25pt 25pt;
@@ -9,8 +11,10 @@ button { margin: 22px 0; font-size: 12pt; }
 
 h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
-.ff1{ font-family: 'Times New Roman', Times, serif; }
-.ff2{ font-family: Verdana, Geneva, Tahoma, sans-serif; }
+.ff1{ font-family: 'Alegreya', serif; }
+.ff2{ font-family: 'Caveat', cursive; }
+.ff3{ font-family: 'Playfair Display', serif;  }
+.ff4{ font-family: 'El Messiri', sans-serif;  }
 
 .fs1{ font-size: 22pt; font-weight: 900; }
 .fs2{ font-size: 18pt; font-weight: 600; } 

@@ -1,14 +1,25 @@
-function defineTag(tag, callback){
-    document.body.querySelectorAll(tag).forEach((elem) => {
-        var attributes = {};
-        for (var att, i = 0, atts = elem.attributes, n = atts.length; i < n; i++){ attributes[atts[i].nodeName] = atts[i].nodeValue }
+class Framework{
+	constructor(){
+		this.mainFont = "ff1";
+		this.secondFont = "ff2";
+		this.titleFont = "ff3";
+		this.subtitleFont = "ff4";
+	}
+	
+	defineTag(tag, callback){
+		document.body.querySelectorAll(tag).forEach((elem) => {
+			var attributes = {};
+			for (var att, i = 0, atts = elem.attributes, n = atts.length; i < n; i++){ attributes[atts[i].nodeName] = atts[i].nodeValue }
 
-        var newElem = callback(attributes, elem);
-        elem.replaceWith(newElem);
-    });
-};
+			var newElem = callback(attributes, elem);
+			elem.replaceWith(newElem);
+		});
+	}
+} 
 
-defineTag('photo', ({ name, deskription, size })=>{
+const framework = new Framework();
+
+framework.defineTag('photo', ({ name, deskription, size })=>{
     var element = document.createElement('div');
     element.id = "image";
 
@@ -26,7 +37,7 @@ defineTag('photo', ({ name, deskription, size })=>{
     return element;
 });
 
-defineTag('header', ({ title, subtitle })=>{
+framework.defineTag('header', ({ title, subtitle, titlefont, subtitlefont })=>{
     var element = document.createElement('div');
     element.id = "header";
 
@@ -35,9 +46,9 @@ defineTag('header', ({ title, subtitle })=>{
 
     element.innerHTML = 
     `
-        <h1 class="ff1 fs1">${title??"Имя Фамилия Отчество"}</h1>
+        <h1 class="${titlefont ?? framework.titleFont } fs1">${title??"Имя Фамилия Отчество"}</h1>
         ${subtitle?
-            `<h2 class="ff2 fs2">${subtitle}</h2>`
+            `<h2 class="${subtitlefont ?? framework.subtitleFont } fs2">${subtitle}</h2>`
             :""
         }
     `;
@@ -45,21 +56,26 @@ defineTag('header', ({ title, subtitle })=>{
     return element;
 });
 
-defineTag('text', (attributes, elem)=>{
+framework.defineTag('text', ({iscomment}, elem)=>{
     var element = document.createElement('span');
     element.id = "text";
 
     element.style.margin = '10px';
 
+	console.log(iscomment)
     element.innerHTML = 
     `
-        <p class="ff2 fs3">${ elem.innerHTML }</p>
+        <p class="
+		${typeof iscomment!=='undefined'?
+			framework.secondFont:
+			framework.mainFont}
+		fs3">${ elem.innerHTML }</p>
     `;
 
     return element;
 });
 
-defineTag('blocks', ({nowrap, gap, dock, direcion}, elem)=>{
+framework.defineTag('blocks', ({nowrap, gap, dock, direcion}, elem)=>{
     var element = document.createElement('div');
     element.id = "blocks";
 
